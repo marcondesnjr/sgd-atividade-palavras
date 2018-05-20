@@ -49,13 +49,13 @@ public class FileConstruct {
         if (!append && p.toFile().exists()) {
             p.toFile().delete();
         }
-        for (String palavra : palavras) {
+        palavras.forEach((palavra) -> {
             try {
                 FileUtils.writeStringToFile(p.toFile(), palavra + newLine, StandardCharsets.UTF_8, true);
             } catch (IOException ex) {
                 Logger.getLogger(FileConstruct.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        });
     }
 
 }
